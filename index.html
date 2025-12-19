@@ -79,8 +79,6 @@
                         <span>arXiv</span>
                         </a>
                       </span>
-
-                
             </div>
           </div>
         </div>
@@ -88,23 +86,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="./static/videos/supplimentary_demo.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -115,10 +96,10 @@
         <div class="content has-text-justified">
           <p>
             Visual navigation is a fundamental capability for autonomous home-assistance robots, enabling the execution of long-horizon tasks such as object search. 
-            While recent methods have leveraged Large Language Models (LLMs) to incorporate commonsense reasoning and improve exploration efficiency, their planning processes remain constrained by textual representations, which cannot adequately capture spatial occupancy or scene geometry--critical factors for informed navigation decisions. 
-            In this work, we explore whether Vision-Language Models (VLMs) can achieve mapless visual navigation using only onboard RGB/RGB-D streams, unlocking their potential for spatial perception and planning. We achieve this by developing the imagination-powered navigation framework ImagineNav++, which imagines the future observation images at valuable robot views and translates the complex navigation planning process into a rather simple best-view image selection problem for VLMs. 
-            Specifically, we first introduce a future-view imagination module, which distills human navigation preferences to generate semantically meaningful candidate viewpoints with high exploration potential. 
-            These imagined future views then serve as visual prompts for the VLM to identify the most informative viewpoint. To maintain spatial consistency, we develop a selective foveation memory mechanism, which hierarchically integrate keyframe observations through a sparse-to-dense framework, thereby constructing a compact yet comprehensive memory for long-term spatial reasoning. 
+            While recent methods have leveraged Large Language Models (LLMs) to incorporate commonsense reasoning and improve exploration efficiency, their planning processes remain constrained by textual representations, which cannot adequately capture spatial occupancy or scene geometry-critical factors for informed navigation decisions. 
+            In this work, we explore whether Vision-Language Models (VLMs) can achieve mapless visual navigation using only onboard RGB/RGB-D streams, unlocking their potential for spatial perception and planning. We achieve this by developing the imagination-powered navigation framework <b>ImagineNav++</b>, which imagines the future observation images at valuable robot views and translates the complex navigation planning process into a rather simple best-view image selection problem for VLMs. 
+            Specifically, we first introduce a <b>future-view imagination</b> module, which distills human navigation preferences to generate semantically meaningful candidate viewpoints with high exploration potential. 
+            These imagined future views then serve as visual prompts for the VLM to identify the most informative viewpoint. To maintain spatial consistency, we develop a <b>selective foveation memory</b> mechanism, which hierarchically integrate keyframe observations through a sparse-to-dense framework, thereby constructing a compact yet comprehensive memory for long-term spatial reasoning. 
             This integrated approach effectively transforms the challenging goal-oriented navigation problem into a series of tractable point-goal navigation tasks. Extensive experiments on open-vocabulary object and instance navigation benchmarks demonstrate that our ImagineNav++ achieves SOTA performance in mapless setting, even surpassing most cumbersome map-based methods, revealing the importance of scene imagination and scene memory in VLM-based spatial reasoning.</p>
         </div>
       </div>
@@ -145,7 +126,8 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
         <div class="content has-text-justified">
-          <p>The framework consists of four key components: the <b>future-view imagination module (Where2Imagine + NVS)</b>, the <b>selective foveation memory module</b>, the <b>VLM-based high-level planner</b>, and the <b>low-level PointNav controller</b>. Through an iterative cycle of imagination, reasoning, and execution, it decomposes long-horizon goal-oriented navigation into tractable sub-tasks without requiring explicit mapping.</p>
+          <p>The framework consists of four key components: the <b>future-view imagination module (Where2Imagine + NVS)</b>, the <b>selective foveation memory module</b>, the <b>VLM-based high-level planner</b>, and the <b>low-level PointNav controller</b>. 
+            Through an iterative cycle of imagination, reasoning, and execution, it decomposes long-horizon goal-oriented navigation into tractable sub-tasks without requiring explicit mapping.</p>
         </div>
       </div>
     </div>
@@ -159,32 +141,49 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-11">
-        <h2 class="title is-3">Results</h2> 
-        <img src="./static/images/exp1.png"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
+        <h2 class="title is-3">Results</h2>
       </div>
     </div>
-    <div class="columns is-centered has-text-centered">
+    
+    <div class="columns is-centered">
       <div class="column is-11">
-        <div class="content has-text-justified">
-          <p><b>(a) NavDP is trained with the simulation data from two types of supervision: </b></p>
-          <ul>
-            <li>A Diffusion Policy head models the distribution of expert demonstrations recorded in the dataset.</li>
-            <li>A Critic Function head that can evaluate the safety of any navigation trajectory. This is learned from the ESDF map in the simulation. </li>
-          </ul>
-          <p><b>(b) Two-stage Inference for Safety. </b>Given a supported navigation goal, the diffusion head first generates a batch of available trajectories, then the critic head assigns scores for each trajectory.
-          We select the best to execute. This procedure balance the generation diversity and deployment safety.</p>
-          <p><b>(c) Real-to-Sim Reconstruction Bridges the Sim-to-Real Gap. </b> To mitigate the sim-to-real gap for navigation, 
-          we use 3DGS to reconstruct a specified scene and follow the same pipeline to generate in-domain navigation datasets. </p>
+        <!-- 第一个实验：图片和文字 -->
+        <div class="has-text-centered mb-6">
+          <img src="./static/images/exp1.png"
+               class="interpolation-image mb-4"
+               alt="Experiment 1 results"/>
+          <div class="content has-text-justified">
+            <p><b>Table 1.</b> Comparison with previous work on <b>object-goal</b> navigation.</p>
+          </div>
+        </div>
+        
+        <!-- 第二个实验：图片和文字 -->
+        <div class="has-text-centered">
+          <img src="./static/images/exp2.png"
+               class="interpolation-image mb-4"
+               alt="Experiment 2: Real-to-Sim Reconstruction"/>
+          <div class="content has-text-justified">
+            <p><b>Table 2.</b> Comparison with previous work on <b>instance-image-goal</b> navigation.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
+<!-- End Results -->
 
-
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="title is-3">Navigation Performance</h2>
+        <img src="./static/images/visualization.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Paper poster -->
 <!-- <section class="hero is-small is-light">
