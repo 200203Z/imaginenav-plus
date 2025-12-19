@@ -81,48 +81,6 @@
                         </a>
                       </span>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/paper.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Paper</span>
-                      </a>
-                    </span>
-                  
-                  <!-- Video Link. -->
-                  <span class="link-block">
-                    <a href="https://youtu.be/vfUnxD9WfoA"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fab fa-youtube"></i>
-                      </span>
-                      <span>Video</span>
-                    </a>
-                  </span>
-                  
-                  <span class="link-block">
-                    <a href="https://x.com/WenzheC7616/status/1926889830106980388"
-                       class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                          <i class="fab fa-twitter"></i>
-                      </span>
-                      <span>Summary</span>
-                    </a>
-                  </span>
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/wzcai99/NavDP" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
                 
             </div>
           </div>
@@ -157,12 +115,12 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning navigation in dynamic open-world environments is an important yet challenging skill for robots. Most previous methods rely on precise localization and mapping or learn from expensive real-world demonstrations.
-            In this paper, we propose the Navigation Diffusion Policy (NavDP), an end-to-end framework trained solely in simulation and can zero-shot transfer to different embodiments in diverse real-world environments.
-            The key ingredient of NavDP's network is the combination of diffusion-based trajectory generation and a critic function for trajectory selection, which are conditioned on only local observation tokens encoded from a shared policy transformer.
-            Given the privileged information of the global environment in simulation, we scale up the demonstrations of good quality to train the diffusion policy and formulate the critic value function targets with contrastive negative samples.
-            Our demonstration generation approach achieves about 2,500 trajectories/GPU per day, 20x more efficient than real-world data collection, and results in a large-scale navigation dataset with 363.2km trajectories across 1244 scenes. Trained with this simulation dataset, NavDP achieves state-of-the-art performance and consistently outstanding generalization capability on quadruped, wheeled, and humanoid robots in diverse indoor and outdoor environments.
-            In addition, we present a preliminary attempt at using Gaussian Splatting to make in-domain real-to-sim fine-tuning to further bridge the sim-to-real gap. Experiments show that adding such real-to-sim data can improve the success rate by 30% without hurting its generalization capability.           </p>
+            Visual navigation is a fundamental capability for autonomous home-assistance robots, enabling the execution of long-horizon tasks such as object search. 
+            While recent methods have leveraged Large Language Models (LLMs) to incorporate commonsense reasoning and improve exploration efficiency, their planning processes remain constrained by textual representations, which cannot adequately capture spatial occupancy or scene geometry--critical factors for informed navigation decisions. 
+            In this work, we explore whether Vision-Language Models (VLMs) can achieve mapless visual navigation using only onboard RGB/RGB-D streams, unlocking their potential for spatial perception and planning. We achieve this by developing the imagination-powered navigation framework ImagineNav++, which imagines the future observation images at valuable robot views and translates the complex navigation planning process into a rather simple best-view image selection problem for VLMs. 
+            Specifically, we first introduce a future-view imagination module, which distills human navigation preferences to generate semantically meaningful candidate viewpoints with high exploration potential. 
+            These imagined future views then serve as visual prompts for the VLM to identify the most informative viewpoint. To maintain spatial consistency, we develop a selective foveation memory mechanism, which hierarchically integrate keyframe observations through a sparse-to-dense framework, thereby constructing a compact yet comprehensive memory for long-term spatial reasoning. 
+            This integrated approach effectively transforms the challenging goal-oriented navigation problem into a series of tractable point-goal navigation tasks. Extensive experiments on open-vocabulary object and instance navigation benchmarks demonstrate that our ImagineNav++ achieves SOTA performance in mapless setting, even surpassing most cumbersome map-based methods, revealing the importance of scene imagination and scene memory in VLM-based spatial reasoning.</p>
         </div>
       </div>
     </div>
@@ -337,106 +295,7 @@
   </div>
 </section>
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-centered has-text-centered">
-      <h2 class="title is-3">In-the-Wild Real-World Navigation</h2>
-      <div id="results-carousel" class="carousel results-carousel is-centered has-text-centered is-max-desktop content">
-        
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted width="75%">
-            <!-- Your video file here -->
-            <source src="static/videos/real-fast5.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted width="75%">
-            <!-- Your video file here -->
-            <source src="static/videos/real-fast1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted width="75%">
-            <!-- Your video file here -->
-            <source src="static/videos/real-fast2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-fast3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video4">
-          <video poster="" id="video4" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-fast4.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video5">
-          <video poster="" id="video5" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-middle1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video6">
-          <video poster="" id="video6" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-middle2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video7">
-          <video poster="" id="video7" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-middle3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
 
-        <div class="item item-video8">
-          <video poster="" id="video8" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-middle4.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-video9">
-          <video poster="" id="video9" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-long1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-video10">
-          <video poster="" id="video9" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-long2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-
-        <div class="item item-video11">
-          <video poster="" id="video9" autoplay controls muted width="75%">\
-            <!-- Your video file here -->
-            <source src="static/videos/real-long3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
 
 <!-- Paper poster -->
 <!-- <section class="hero is-small is-light">
